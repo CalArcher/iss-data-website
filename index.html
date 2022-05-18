@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>I.S.S. Volcano Alert</title>
+  <meta name="A Fun Twitter Bot" content="">
+  <meta name="Cal Archer" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Michroma&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <main id="contentSection">
+    <div class="container">
+      <h1>International Space Station Volcano Alert</h1>
+      <h5>When the I.S.S. passes directly over a volcano, an alert tweet is sent out to one of the astronauts on board.</h5>
+      <h6>Check out the projects repository <a href="#">here</a> (to see the code behind it) or check out the alert bot's twitter account <a href="#">here</a> <i class="fa-brands fa-twitter"></i></h6>
+    </div>
+
+    <div id="mainColumn" class="column">
+      <h2>Most recent volcano:</h2>
+      <div id="statsCont">
+        <div class="column stats">
+          <h4 id="lat">Latitude:</h4>
+        </div>
+        <div class="column stats">
+          <h4 id="long">Longitude:</h4>
+        </div>
+        <div class="column stats">
+          <h4 id="name">Volcano Name:</h4>
+        </div>
+      </div>
+     
+      <div id="dataCont" class="container">
+        <div class="data">
+          <h4>Last volcano location</h4>
+          <iframe id="mapIframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src='https://www.google.com/maps/embed/v1/view?key=AIzaSyDodhFFW3Wz6zw0c9TmzMMSdrsANKgBIEU&center=0,0&zoom=10&maptype=satellite'></iframe>
+        </div>
+        
+      </div>
+     
+      
+    </div>
+    <p id="currentVal"></p>
+  </main>
+
+<script src="https://kit.fontawesome.com/bac08de2ab.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="secret.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<!-- thank u mr skeltal -->
+</body>
+</html>
