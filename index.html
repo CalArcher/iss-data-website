@@ -19,6 +19,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Michroma&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 
+   <!-- Chart.js
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -39,7 +43,7 @@
     <div class="container">
       <h1>International Space Station Volcano Alert</h1>
       <h5>When the I.S.S. passes directly over a volcano, an alert tweet is sent out to one of the astronauts on board.</h5>
-      <h6>Check out the projects repository <a href="#">here</a> (to see the code behind it) or check out the alert bot's twitter account <a href="#">here</a> <i class="fa-brands fa-twitter"></i></h6>
+      <h6>Check out the project's <a href="https://github.com/CalArcher/ISS-Twitter-Bot" target="_blank">Github page</a> <i class="fa-brands fa-github"></i> (to see the code behind it) or check out the alert bot's <a href="https://twitter.com/iss_alert?s=21&t=mQaBfkTYOSJ7UJXfPfjQFQ" target="_blank">Twitter account</a> <i class="fa-brands fa-twitter"></i></h6>
     </div>
 
     <div id="mainColumn" class="column">
@@ -52,7 +56,7 @@
           <h4 id="long">Longitude:</h4>
         </div>
         <div class="column stats">
-          <h4 id="name">Volcano Name:</h4>
+          <h4 id="name">Name:</h4>
         </div>
       </div>
      
@@ -60,6 +64,11 @@
         <div class="data">
           <h4>Last volcano location</h4>
           <iframe id="mapIframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src='https://www.google.com/maps/embed/v1/view?key=AIzaSyDodhFFW3Wz6zw0c9TmzMMSdrsANKgBIEU&center=0,0&zoom=10&maptype=satellite'></iframe>
+        </div>
+
+        <div class="data">
+          <h4>Most frequent volcanos</h4>
+          <canvas id="passedOverChart"></canvas>
         </div>
         
       </div>

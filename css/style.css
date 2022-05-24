@@ -99,10 +99,6 @@ iframe{
     border: 5px solid var(--darkBlue);
 }
 
-/* .container{
-    border: 1px solid red;
-} */
-
 ::-webkit-scrollbar {
     width: 2.2rem;
 }
@@ -114,17 +110,22 @@ iframe{
     border: 6px solid black;
     margin-right: 2px;
 }
-/* 
-padding for scrollbar
+
 ::-webkit-scrollbar-track {
     padding-right: 5px;
-} */
-
+}
 
 #currentVal{
     color: red;
     font-size: 100px;
-    /* display: none; */
+    display: none;
+}
+
+#passedOverChart{
+    border: 5px solid var(--darkBlue);
+
+    width: 100px;
+    height: 300px;
 }
 
 /* Larger than mobile */
