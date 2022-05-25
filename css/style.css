@@ -30,19 +30,17 @@ a{
 ------------------------  */
 
 ::-webkit-scrollbar {
-    width: 2.2rem;
+    width: 2.5rem;
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: var(--darkBlue);
     background-image: -webkit-linear-gradient(90deg, transparent, var(--glowDarkGreen) 50% , transparent, transparent);
-    border: 6px solid black;
+    border: 6px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
     margin-right: 2px;
 }
-
-/* ::-webkit-scrollbar-track {
-    padding-right: 5px;
-} */
 
 /* ------------------------
 ----------TOP TEXT-----------
