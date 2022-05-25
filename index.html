@@ -40,13 +40,15 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <main id="contentSection">
-    <div class="container">
+    <div id="text" class="container">
       <h1>International Space Station Volcano Alert</h1>
       <h5>When the I.S.S. passes directly over a volcano, an alert tweet is sent out to one of the astronauts on board.</h5>
       <h6>Check out the project's <a href="https://github.com/CalArcher/ISS-Twitter-Bot" target="_blank">Github page</a> <i class="fa-brands fa-github"></i> (to see the code behind it) or check out the alert bot's <a href="https://twitter.com/iss_alert?s=21&t=mQaBfkTYOSJ7UJXfPfjQFQ" target="_blank">Twitter account</a> <i class="fa-brands fa-twitter"></i></h6>
     </div>
 
-    <div id="mainColumn" class="column">
+    <!-- class="column" -->
+    <div id="mainColumn">
+      
       <h2>Most recent volcano:</h2>
       <div id="statsCont">
         <div class="column stats">
@@ -59,18 +61,33 @@
           <h4 id="name">Name:</h4>
         </div>
       </div>
-     
+
+
+
+
+
+     <!-- ---------- -->
       <div id="dataCont" class="container">
         <div class="data">
           <h4>Last volcano location</h4>
           <iframe id="mapIframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src='https://www.google.com/maps/embed/v1/view?key=AIzaSyDodhFFW3Wz6zw0c9TmzMMSdrsANKgBIEU&center=0,0&zoom=10&maptype=satellite'></iframe>
         </div>
 
-        <div class="data">
+
+
+        <div id="dataID" class="data">
           <h4>Most frequent volcanos</h4>
-          <canvas id="passedOverChart"></canvas>
+          <div id="chartBox">
+            <canvas id="passedOverChart"></canvas>
+          </div>
         </div>
-        
+      <!-- ------------- -->
+
+
+
+
+
+
       </div>
      
       

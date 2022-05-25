@@ -37,46 +37,66 @@ async function printData(){
     }
 }
 
-//populates chart
-// async function graphData(){
-//     frequentData = await fetchData()
-// }
+// populates chart
+async function graphData(){
+    try {
+        frequentData = await fetchData()
+        let top3 = frequentData.top3
+        const ctx = document.getElementById('passedOverChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [top3[0][0], top3[1][0], top3[2][0]],
+                datasets: [{
+                    label: "",
+                    data: [top3[0][1], top3[1][1], top3[2][1]],
+                    backgroundColor: [
+                        'rgba(230, 131, 255, .2)',
+                        'rgba(148, 218, 255, .2)',
+                        'rgba(153, 254, 255, .2)'
+                    ],
+                    borderColor: [
+                        'rgb(185, 131, 255)',
+                        'rgb(148, 218, 255)',
+                        'rgb(153, 254, 255)'
+                    ],
+                    borderWidth: 2.75
+                }]
+            },
+            options: {
 
-const ctx = document.getElementById('passedOverChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: "Most frequent volcanos",
-            data: [19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+                animation: {
+                    maintainAspectRatio: false,
+                    animations: {
+                        y: {
+                          easing: 'easeInOutElastic',
+                          }
+                        }
+                    },
+                plugins: {
+                    legend: {
+                    display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
-        }
+        });
+    } catch (error) {
+        console.log(error)
     }
-});
+   
+}
+
+graphData()
+
+
 
 setInterval(function() {
     printData()
+    graphData()
 }, 8000)
 
