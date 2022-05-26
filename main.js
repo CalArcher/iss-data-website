@@ -20,18 +20,13 @@ async function printData(){
     try {
         users = await fetchData()
         let coordCheck = document.querySelector('#currentVal').innerText
-        
-        console.log(coordCheck, 'coordcheck')
         if(coordCheck != users.volcanoLat){
             document.querySelector('#currentVal').innerText = users.volcanoLat
             document.querySelector('#long').innerText = 'Longitude: ' + users.volcanoLong
             document.querySelector('#lat').innerText = 'Latitude: ' + users.volcanoLat
             document.querySelector('#name').innerText = 'Name: ' + users.volcanoName
             mapIframe.src = `https://www.google.com/maps/embed/v1/view?key=${GOOGLE_KEY}&center=${users.volcanoLat},${users.volcanoLong}&zoom=10&maptype=satellite`
-        }else{
-            console.log('no new data')
         }
-        console.log(users)
     } catch (e){
         console.log(e)
     }
@@ -42,11 +37,14 @@ async function graphData(){
     try {
         frequentData = await fetchData()
         let top3 = frequentData.top3
+        let top3First = top3[0][0].split(' ')
+        let top3Second = top3[1][0].split(' ')
+        let top3Third = top3[2][0].split(' ')
         const ctx = document.getElementById('passedOverChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: [top3[0][0], top3[1][0], top3[2][0]],
+                labels: [top3First, top3Second, top3Third],
                 datasets: [{
                     label: "",
                     data: [top3[0][1], top3[1][1], top3[2][1]],
@@ -80,7 +78,15 @@ async function graphData(){
                 },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'rgba(255,255,255, 0.95)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'rgba(255,255,255, 0.95)'
+                        }
                     }
                 }
             }
@@ -95,8 +101,49 @@ graphData()
 
 
 
+function flicker1(){
+    document.querySelector('#heading1').style.filter = 'none'
+    setTimeout(() => {
+        document.querySelector('#heading1').style.filter = 'drop-shadow(0 0 0.75rem rgba(51, 236, 193, 0.6))'
+    }, 300);
+}
+
+function flicker2(){
+    document.querySelector('#heading2').style.filter = 'none'
+    setTimeout(() => {
+        document.querySelector('#heading2').style.filter = 'drop-shadow(0 0 0.75rem rgba(51, 236, 193, 0.6))'
+    }, 300);
+}
+
+function flicker3(){
+    document.querySelector('#heading3').style.filter = 'none'
+    setTimeout(() => {
+        document.querySelector('#heading3').style.filter = 'drop-shadow(0 0 0.75rem rgba(51, 236, 193, 0.6))'
+    }, 320);
+}
+
+
+const randomSecs = () => Math.random() * 9000
+
+const timer1 = setTimeout(function repeated() {
+    flicker1()
+    flicker2()
+    clearTimeout(timer1)
+    setTimeout(repeated, randomSecs());
+}, randomSecs());
+
+const timer2 = setTimeout(function repeated() {
+    flicker3()
+    clearTimeout(timer2)
+    setTimeout(repeated, randomSecs());
+}, randomSecs());
+
+timer1()
+timer2()
+
+
+
 setInterval(function() {
     printData()
-    graphData()
 }, 8000)
 
