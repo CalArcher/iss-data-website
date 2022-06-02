@@ -37,9 +37,15 @@ async function graphData(){
     try {
         frequentData = await fetchData()
         let top3 = frequentData.top3
-        let top3First = top3[0][0].split(' ')
-        let top3Second = top3[1][0].split(' ')
-        let top3Third = top3[2][0].split(' ')
+        //ternary operator necessary for when heroku resets data and top3 gets reset to empty
+        let top3First = top3[0] === null ? '' : top3[0][0].split(' ')
+        let top3Second = top3[1] === null ? '' : top3[1][0].split(' ')
+        let top3Third = top3[2] === null ? '' : top3[2][0].split(' ')
+
+        let top3data1 = top3[0] === null ? 0 : top3[0][1]
+        let top3data2 = top3[1] === null ? 0 : top3[1][1]
+        let top3data3 = top3[2] === null ? 0 : top3[2][1]
+
         const ctx = document.getElementById('passedOverChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
@@ -47,7 +53,7 @@ async function graphData(){
                 labels: [top3First, top3Second, top3Third],
                 datasets: [{
                     label: "",
-                    data: [top3[0][1], top3[1][1], top3[2][1]],
+                    data: [top3data1, top3data2, top3data3],
                     backgroundColor: [
                         'rgba(230, 131, 255, .2)',
                         'rgba(148, 218, 255, .2)',
@@ -80,6 +86,7 @@ async function graphData(){
                     y: {
                         beginAtZero: true,
                         ticks: {
+                            stepSize: 1,
                             color: 'rgba(255,255,255, 0.95)'
                         }
                     },

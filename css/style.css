@@ -48,7 +48,7 @@ a{
 ------------------------  */
 #contentSection{
     border: 4px solid var(--glowGreen);
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(0,0,0,0.3);
     width: 90vw;
     height: 88vh;
     border-radius: 1.5rem;
@@ -167,6 +167,13 @@ iframe{
 /* ------------------------
 ----------MEDIA QUERIES-----------
 ------------------------  */
+
+@media screen and (max-width: 490px) {
+    #contentSection{
+    height: 85vh;
+    }
+
+}
 
 @media screen and (max-width: 1140px) {
     #statsCont{
