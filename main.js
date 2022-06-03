@@ -145,10 +145,6 @@ const timer2 = setTimeout(function repeated() {
     setTimeout(repeated, randomSecs());
 }, randomSecs());
 
-timer1()
-timer2()
-
-
 
 setInterval(function() {
     printData()
